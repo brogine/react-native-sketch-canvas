@@ -97,12 +97,15 @@ class SketchCanvas extends React.Component {
     this._initialized = false
 
     this.state.text = this._processText(props.text ? props.text.map(t => Object.assign({}, t)) : null)
+    this.createPanResponder();
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({
-      text: this._processText(nextProps.text ? nextProps.text.map(t => Object.assign({}, t)) : null)
-    })
+  componentDidUpdate(prevProps) {
+    if (prevProps.text !== this.props.text) {
+      this.setState({
+        text: this._processText(this.props.text ? this.props.text.map(t => Object.assign({}, t)) : null)
+      })
+    }
   }
 
   _processText(text) {
@@ -162,7 +165,7 @@ class SketchCanvas extends React.Component {
     }
   }
 
-  UNSAFE_componentWillMount() {
+  createPanResponder() {
     this.panResponder = PanResponder.create({
       // Ask to be the responder:
       onStartShouldSetPanResponder: (evt, gestureState) => this.props.touchEnabled && gestureState.numberActiveTouches === this.props.requiredTouches,
@@ -251,6 +254,7 @@ class SketchCanvas extends React.Component {
   }
 
   async componentDidMount() {
+    if (this.props.saveToStorage === false) return;
     if (this.props.promptForExternalWritePermissions) {
       const isStoragePermissionAuthorized = await requestPermissions(
         this.props.permissionDialogTitle,
