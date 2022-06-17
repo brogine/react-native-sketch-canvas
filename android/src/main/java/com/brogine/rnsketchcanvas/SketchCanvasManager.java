@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas;
+package com.brogine.rnsketchcanvas;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
