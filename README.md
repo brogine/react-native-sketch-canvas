@@ -26,11 +26,11 @@ Features
 -------------
 Install from `npm` (only support RN >= 0.40)
 ```bash
-npm install @terrylinla/react-native-sketch-canvas --save
+npm install @brogine/react-native-sketch-canvas --save
 ```
 Link native code
 ```bash
-react-native link @terrylinla/react-native-sketch-canvas
+react-native link @brogine/react-native-sketch-canvas
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ import {
   View,
 } from 'react-native';
 
-import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
+import { SketchCanvas } from '@brogine/react-native-sketch-canvas';
 
 export default class example extends Component {
   render() {
@@ -125,7 +125,7 @@ import {
   Alert,
 } from 'react-native';
 
-import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import RNSketchCanvas from '@brogine/react-native-sketch-canvas';
 
 export default class example extends Component {
   render() {
@@ -376,4 +376,4 @@ Check full example app in the [example](./example) folder
 
 ## Troubleshooting
 -------------
-Please refer  [here](https://github.com/terrylinla/react-native-sketch-canvas/wiki/Troubleshooting).
+Please refer  [here](https://github.com/brogine/react-native-sketch-canvas/wiki/Troubleshooting).
